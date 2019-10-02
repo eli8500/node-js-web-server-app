@@ -9,8 +9,9 @@ const forecast = (lat,lng, callback)=>{
             }else if(body.error){
                 callback('Error in weather api: ' + body.error, undefined)
             }else{
+                console.log(body.daily.data[0])
                 const currently = body.currently
-                const str = body.daily.data[0].summary + ' It\'s is currently '+ currently.temperature + ' degrees out. There is a '+currently.precipProbability+'% of change of rain.'
+                const str = body.daily.data[0].summary +' Range of Temperature is ' + body.daily.data[0].apparentTemperatureMin +' ~ ' + body.daily.data[0].apparentTemperatureMax + '.' + ' It\'s is currently '+ currently.temperature + ' degrees out. There is a '+currently.precipProbability+'% of change of rain.'
                 callback(undefined, str)
             }
         })
