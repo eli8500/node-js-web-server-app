@@ -3,7 +3,6 @@ const forecast = (lat,lng, callback)=>{
         let url = 'https://api.darksky.net/forecast/381a2f118254407cc2ac1d3b279e7575/'
         url+=lat + ',' + lng
         url+='?units=si&lang=en'
-
         request({url,json:true},(error, {body})=>{
             if(error){
                 callback('Error connect to  weather api' + error, undefined)
